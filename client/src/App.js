@@ -1,12 +1,12 @@
 import React from 'react';
 import RecipeList from './components/Recept-list/recept-list';
-import RecipeForm from './components/Recipe-Form/recipe-form';
+import AddRecipe from './components/Add-recipe/add-recipe';
 
 function App () {
   return (
     <>
       <RecipeList />
-      <RecipeForm />
+      <AddRecipe />
     </>
   );
 }

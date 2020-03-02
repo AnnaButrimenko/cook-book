@@ -1,30 +1,8 @@
-import React, {useState} from 'react';
-import {postNewRecipe} from '../../services/recipes';
+import React from 'react';
 import useRecipeForm from '../CustomHooks';
 
 const RecipeForm = () => {
-  // const initialState = {
-  //   title: '',
-  //   description: ''
-  // };
-  //   const [title, setTitle] = useState({});
-  const callback = () => {
-    alert(`Recipe Created!
-         Title: ${inputs.title}
-         Email: ${inputs.description}`);
-  }
   const {inputs, handleInputChange, handleSubmit} = useRecipeForm();
-  // const submitNewRecipe = (e) => {
-  //   const newRecipe = {
-  //     ...initialState,
-  //     ...values
-  //   };
-  //   console.log(e.target[0].value);
-  //   console.log(e.target[1].value);
-  //   // console.log(newRecipe);
-  //   // postNewRecipe(newRecipe)
-  // }
-  console.log(inputs);
   return (
     <form
       onSubmit={handleSubmit}

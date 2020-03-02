@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import getRecipes from '../../services/recipes'
-import RecipeItem from '../Recept-item/recept-item';
+import RecipeItem from '../Recipe-item/recept-item';
 
 const RecipeList = () => {
   const [recipeList, setRecipeList] = useState([]);
@@ -11,12 +11,15 @@ const RecipeList = () => {
         setRecipeList(recipes)
       })
   }, []);
+  
   const renderRecipes = (recipeList) => (
     recipeList.map((recipe) => (
-      <RecipeItem recipe={recipe} />
+      <RecipeItem
+        key={recipe._id}
+        recipe={recipe}
+      />
     ))
-  )
-  console.log(recipeList);
+  );
   return (
     <>
       {renderRecipes(recipeList)}
