@@ -1,10 +1,14 @@
 import React from 'react';
 
-export default function RecepteItem () {
+export default function RecipeItem ({ recipe }) {
+  const {
+    title,
+    description
+  } = recipe;
   return (
     <>
-        <h1>Header</h1>
-      <p>Description</p>
+      <h1>{title}</h1>
+      <p>{description}</p>
     </>
   )
 }

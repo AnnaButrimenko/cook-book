@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Recipe = require('../models/Recipe');
 
+//GET ALL RECIPES
 router.get('/', async (reg, res) => {
    try {
         const recipes = await Recipe.find();
@@ -12,6 +13,7 @@ router.get('/', async (reg, res) => {
   }
 );
 
+//POST RECIPE
 router.post('/', async (reg, res) => {
     const recipe = new Recipe({
       title: reg.body.title,
@@ -26,6 +28,7 @@ router.post('/', async (reg, res) => {
   }
 );
 
+//GET SPECIFIC RECIPE
 router.get('/:recipeId', async (reg, res) => {
   try {
       const recipe = await Recipe.findById(reg.params.recipeId);
