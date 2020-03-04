@@ -3,12 +3,12 @@ import {postNewRecipe} from '../services/recipes';
 
 const useRecipeForm = () => {
   const [inputs, setInputs] = useState({});
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     if (event) {
       console.log(inputs);
       event.preventDefault();
       const newRecipe = inputs;
-      postNewRecipe(newRecipe);
+      await postNewRecipe(newRecipe);
     }
   };
   const handleInputChange = (event) => {

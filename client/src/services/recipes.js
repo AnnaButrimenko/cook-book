@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default function getRecipes () {
+export function getRecipes () {
   return axios
     .get('http://localhost:5000/recipes')
     .then((recipes) => recipes.data)
@@ -10,6 +10,13 @@ export default function getRecipes () {
 export function postNewRecipe (newRecipe) {
   return axios
     .post('http://localhost:5000/recipes', newRecipe)
+    .then((res) => res)
+    .catch((err) => alert(err.message));
+}
+
+export function deleteRecipe (id) {
+  return axios
+    .delete(`http://localhost:5000/recipes/${id}`)
     .then((res) => res)
     .catch((err) => alert(err.message));
 }
