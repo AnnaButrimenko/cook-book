@@ -1,28 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import RecipeForm from '../Recipe-Form/recipe-form';
-import {Paper, Modal} from '@material-ui/core'
-import ModalWindow from '../Modal-window/modal-window';
 
-const AddRecipe = ({ open, onModalClose }) => {
-  useEffect(() => {
-    document.onkeyup = (event) => {
-      if (event.key === 'Escape') {
-        onModalClose()
-      }
-    }
-  }, [onModalClose]);
+const AddRecipe = () => {
+  const [recipe, isShown] = useState(false);
+  const renderRecipeForm = () => {
+    isShown(true)
+  }
 
   return (
-    <Paper>
-    <Modal
-      open={open}
-      onClose={onModalClose}
-    >
-      <Paper>
-     <RecipeForm/>
-      </Paper>
-    </Modal>
-      </Paper>
+    <>
+      <button onClick={renderRecipeForm}>Add recipe</button>
+      { recipe ? <RecipeForm /> : null }
+    </>
   )
 };
 
