@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {getRecipes, deleteRecipe} from '../../services/recipes'
-import RecipeItem from '../Recipe-item/recept-item';
+import RecipeItem from '../Recipe-item/recipe-item';
 
 const RecipeList = () => {
   const [recipeList, setRecipeList] = useState([]);
@@ -8,7 +8,7 @@ const RecipeList = () => {
   useEffect(() => {
     getRecipes()
       .then((recipes) => {
-        setRecipeList(recipes)
+        setRecipeList(recipes => recipes)
       })
   }, []);
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import useRecipeForm from '../CustomHooks';
+import {TextField} from '@material-ui/core';
 
 const RecipeForm = () => {
   const {inputs, handleInputChange, handleSubmit} = useRecipeForm();
@@ -7,8 +8,20 @@ const RecipeForm = () => {
     <form
       onSubmit={handleSubmit}
     >
-      <input name="title" placeholder="Recipe title" value={inputs.title} onChange={handleInputChange}/>
-      <textarea name="description" placeholder="Recipe description" value={inputs.description} onChange={handleInputChange}/>
+      <TextField
+        name="title"
+        placeholder="Recipe title"
+        value={inputs.title}
+        onChange={handleInputChange}
+      />
+      <TextField
+        rows="10"
+        name="description"
+        placeholder="Recipe description"
+        value={inputs.description}
+        onChange={handleInputChange}
+        multiline
+      />
       <button>Add recipe</button>
     </form>
   )
