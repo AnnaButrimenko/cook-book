@@ -12,6 +12,7 @@ const RecipeList = () => {
       })
   }, []);
 
+  console.log(recipeList.length);
   const removeRecipe = async (id) => {
     const idx = recipeList.findIndex((el) => el._id === id);
     const newRecipeList = [...recipeList.slice(0, idx), ...recipeList.slice(idx + 1)];
@@ -26,6 +27,7 @@ const RecipeList = () => {
         key={recipe._id}
         recipe={recipe}
         onRemoveRecipe={removeRecipe}
+        recipeList={recipeList}
       />
     ))
   );

@@ -20,3 +20,10 @@ export function deleteRecipe (id) {
     .then((res) => res)
     .catch((err) => alert(err.message));
 }
+
+export function editRecipe (id, updateRecipe) {
+  return axios
+    .patch(`http://localhost:5000/recipes/${id}`, updateRecipe)
+    .then((res) => res)
+    .catch((err) => alert(err.message));
+}

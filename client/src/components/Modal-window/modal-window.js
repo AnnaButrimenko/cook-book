@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import { Modal, Paper, Backdrop } from '@material-ui/core';
 import useStyles from './_modal-window';
 
-export default function ModalWindow (props) {
+export default function ModalWindow ({ open, onModalClose, children }) {
   const classes = useStyles();
-  const { open, onModalClose, children } = props;
 
   const handleClose = () => {
     onModalClose();

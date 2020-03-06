@@ -6,7 +6,6 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import ModalWindow from '../Modal-window/modal-window';
 
-
 const AddRecipe = ({ open, onModalClose }) => {
   const classes = useStyles();
   useEffect(() => {
@@ -30,13 +29,15 @@ const AddRecipe = ({ open, onModalClose }) => {
       //   timeout: 500,
       // }}
     >
+      <>
         <div className={classes.header}>
           ADDED TO CART:
           <IconButton onClick={onModalClose}>
             <CloseIcon />
           </IconButton>
         </div>
-        <RecipeForm/>
+        <RecipeForm onModalClose={onModalClose}/>
+      </>
     </ModalWindow>
   )
 };
