@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal, Paper, Backdrop } from '@material-ui/core';
+import useStyles from './_modal-window';
 
 export default function ModalWindow (props) {
-  // const classes = useStyles();
+  const classes = useStyles();
   const { open, onModalClose, children } = props;
 
   const handleClose = () => {
@@ -15,7 +16,7 @@ export default function ModalWindow (props) {
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        // className={classes.modal}
+        className={classes.modal}
         open={open}
         onClose={handleClose}
         closeAfterTransition
@@ -25,7 +26,7 @@ export default function ModalWindow (props) {
         }}
       >
         <>
-          <Paper >
+          <Paper className={classes.paper}>
             {children}
           </Paper>
         </>

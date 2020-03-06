@@ -1,26 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import RecipeList from './components/Recipe-list/recipe-list';
-import AddRecipe from './components/Add-recipe/add-recipe';
-import AddRecipeBtn from './components/Add-recipe-btn/add-recipe-btn'
+import Header from './components/Header/header';
 
 function App () {
-  const [modal, setModal] = useState(false);
-
-  const closeModal = () => {
-    setModal(false)
-  };
   return (
     <>
+      <CssBaseline />
+      <Header />
       <RecipeList />
-      <AddRecipe
-        open={modal}
-        onModalClose={closeModal}
-      />
-      <AddRecipeBtn
-        handleClick={() => {
-          setModal(true)
-        }}
-      />
     </>
   );
 }
