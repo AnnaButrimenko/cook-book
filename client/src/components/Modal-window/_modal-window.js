@@ -1,6 +1,11 @@
 import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
+  header: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    backgroundColor: theme.palette.primary.main
+  },
   modal: {
     display: 'flex',
     alignItems: 'center',
@@ -16,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   [theme.breakpoints.up('md')]: {
     paper: {
-      maxWidth: '60%'
+      minWidth: '60%'
     }
   },
   [theme.breakpoints.up('lg')]: {

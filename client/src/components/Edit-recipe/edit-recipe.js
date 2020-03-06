@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import {editRecipe} from '../../services/recipes';
-import {Container, Button} from '@material-ui/core';
+import {Container, Button, TextField} from '@material-ui/core';
 import ModalWindow from '../Modal-window/modal-window';
+import useStyles from './_edit-recipe';
 
 const EditRecipe = ({currentRecipe, open, onModalClose, onUpdateRecipe }) => {
+  const classes = useStyles();
   const [recipe, setRecipe] = useState(currentRecipe);
   const [updatedRecipe, setUpdatedRecipe] = useState(null);
 
@@ -30,23 +32,30 @@ const EditRecipe = ({currentRecipe, open, onModalClose, onUpdateRecipe }) => {
       }
     >
       <Container>
-        <div >
-          <input
+        <div className={classes.wrapper}>
+          <TextField
             name="title"
+            required
             placeholder="Recipe title"
+            margin="dense"
+            variant="outlined"
             value={recipe.title}
             onChange={handleInputChange}
           />
-          <textarea
-            rows="10"
+          <TextField
+            required
+            multiline
+            rows="20"
             name="description"
             placeholder="Recipe description"
+            margin="dense"
+            variant="outlined"
             value={recipe.description}
             onChange={handleInputChange}
           />
           <Button
-            value="Edit"
-            type="Submit"
+            value="Add recipe"
+            type="submit"
             disableUnderline
             color="primary"
             onClick={() => { onUpdateRecipe(recipe._id, recipe) } }
@@ -62,7 +71,9 @@ const EditRecipe = ({currentRecipe, open, onModalClose, onUpdateRecipe }) => {
       open={open}
       onModalClose={onModalClose}
     >
-      {renderEditRecipeForm}
+      <div>
+        {renderEditRecipeForm}
+      </div>
     </ModalWindow>
   )
 };

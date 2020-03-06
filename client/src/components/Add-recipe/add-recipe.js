@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import CloseIcon from '@material-ui/icons/Close';
-import IconButton from '@material-ui/core/IconButton';
 import RecipeForm from '../Recipe-Form/recipe-form';
 import ModalWindow from '../Modal-window/modal-window';
 import useStyles from './_add-recipe';
@@ -23,12 +21,9 @@ const AddRecipe = ({ open, onModalClose, onAddRecipe }) => {
       onModalClose={onModalClose}
     >
       <>
-        <div className={classes.header}>
-          <IconButton onClick={onModalClose}>
-            <CloseIcon />
-          </IconButton>
+        <div className={classes.modalContent}>
+          <RecipeForm onAddRecipe={onAddRecipe} onModalClose={onModalClose}/>
         </div>
-        <RecipeForm onAddRecipe={onAddRecipe} onModalClose={onModalClose}/>
       </>
     </ModalWindow>
   )

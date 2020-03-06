@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {getRecipes, deleteRecipe} from '../../services/recipes'
 import RecipeItem from '../Recipe-item/recipe-item';
 import AddRecipe from '../Add-recipe/add-recipe';
-import {Container} from '@material-ui/core';
+import {getRecipes, deleteRecipe} from '../../services/recipes'
+import useStyles from './_recipe-list';
 
 const RecipeList = ({modal, closeModal}) => {
+  const classes = useStyles();
   const [recipeList, setRecipeList] = useState([]);
-  const [updatedRecipe, setUpdatedRecipe] = useState(null);
 
   useEffect(() => {
     getRecipes()
@@ -14,8 +14,6 @@ const RecipeList = ({modal, closeModal}) => {
         setRecipeList(recipes)
       })
   }, [recipeList.length]);
-
-  console.log(recipeList.length);
 
   const addRecipe = recipe => {
     setRecipeList([...recipeList, recipe])
@@ -32,7 +30,6 @@ const RecipeList = ({modal, closeModal}) => {
     await deleteRecipe(id)
   };
 
-  console.log(recipeList);
   const renderRecipes = (recipeList) => (
     recipeList.map((recipe) => (
       <RecipeItem
@@ -45,14 +42,14 @@ const RecipeList = ({modal, closeModal}) => {
     ))
   );
   return (
-    <>
+    <div className={classes.recipeList}>
       {renderRecipes(recipeList)}
       <AddRecipe
-  open={modal}
-  onModalClose={closeModal}
+        open={modal}
+        onModalClose={closeModal}
         onAddRecipe={addRecipe}
-  />
-    </>
+      />
+    </div>
   )
 };
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {getRecipes, postNewRecipe} from '../services/recipes';
+import { postNewRecipe } from '../services/recipes';
 
 const useRecipeForm = () => {
   const [inputs, setInputs] = useState({});
@@ -7,9 +7,8 @@ const useRecipeForm = () => {
     if (event) {
       event.preventDefault();
     }
-      console.log(inputs);
-      const newRecipe = inputs;
-      await postNewRecipe(newRecipe)
+    const newRecipe = inputs;
+    await postNewRecipe(newRecipe)
   };
   const handleInputChange = (event) => {
     event.persist();

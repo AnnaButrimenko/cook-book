@@ -1,31 +1,12 @@
-import React, {useState} from 'react';
-import useRecipeForm from '../CustomHooks';
-import {TextField, Container, Input, Button} from '@material-ui/core';
+import React from 'react';
+import PropTypes from 'prop-types';
+import useRecipeForm from '../customHooks';
+import {TextField, Container, Button} from '@material-ui/core';
 import useStyles from './_recipe-form'
-import {postNewRecipe} from '../../services/recipes';
-
 
 const RecipeForm = ({onModalClose, onAddRecipe}) => {
   const {inputs, handleInputChange, handleSubmit} = useRecipeForm();
-  const [recipe, setRecipe] = useState({});
-  // const [inputs, setInputs] = useState({});
-  // const handleSubmit = async (event) => {
-  //   if (event) {
-  //     event.preventDefault();
-  //   }
-  //     const newRecipe = inputs;
-  //     console.log('inputs', inputs);
-  //     setRecipe(newRecipe)
-  //     await postNewRecipe(newRecipe)
-  //   console.log('from submit', newRecipe);
-  // };
-  // const handleInputChange = (event) => {
-  //   event.persist();
-  //   setInputs(inputs => ({...inputs, [event.target.name]: event.target.value}));
-  // };
-  //
-  // console.log('RECIPE', recipe);
-  // console.log(onAddRecipe);
+
   const classes = useStyles();
   return (
     <form
@@ -37,16 +18,21 @@ const RecipeForm = ({onModalClose, onAddRecipe}) => {
     >
       <Container>
         <div className={classes.wrapper}>
-          <input
+          <TextField
             name="title"
+            required
             placeholder="Recipe title"
+            variant="outlined"
             value={inputs.title}
             onChange={handleInputChange}
           />
-          <textarea
-            rows="10"
+          <TextField
+            required
+            multiline
+            rows="20"
             name="description"
             placeholder="Recipe description"
+            variant="outlined"
             value={inputs.description}
             onChange={handleInputChange}
           />
@@ -65,3 +51,8 @@ const RecipeForm = ({onModalClose, onAddRecipe}) => {
 };
 
 export default RecipeForm;
+
+RecipeForm.propTypes = {
+  onModalClose: PropTypes.func.isRequired,
+  onAddRecipe: PropTypes.func.isRequired
+};

@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal, Paper, Backdrop } from '@material-ui/core';
 import useStyles from './_modal-window';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
 
 export default function ModalWindow ({ open, onModalClose, children }) {
   const classes = useStyles();
@@ -26,6 +28,13 @@ export default function ModalWindow ({ open, onModalClose, children }) {
       >
         <>
           <Paper className={classes.paper}>
+            <div className={classes.header}>
+              <IconButton
+              // color={theme.palette.primary.contrastText}
+                onClick={onModalClose}>
+                <CloseIcon />
+              </IconButton>
+            </div>
             {children}
           </Paper>
         </>

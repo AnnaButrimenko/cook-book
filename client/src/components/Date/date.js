@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import useStyles from './_date'
 
 const Date = ({ date }) => {
-  // const dateForm = date
+  const classes = useStyles();
   const dateForm = date.split('-').join('/').slice(0, 10);
   return (
     <>
-      <span>{dateForm}</span>
+      <span
+        className={classes.date}>
+        {dateForm}
+      </span>
     </>
   )
 };
