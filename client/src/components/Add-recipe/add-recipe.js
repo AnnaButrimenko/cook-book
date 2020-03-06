@@ -19,6 +19,7 @@ const AddRecipe = ({ open, onModalClose, onAddRecipe }) => {
     <ModalWindow
       open={open}
       onModalClose={onModalClose}
+      label="Add recipe"
     >
       <>
         <div className={classes.modalContent}>

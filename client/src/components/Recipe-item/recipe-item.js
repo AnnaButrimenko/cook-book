@@ -85,7 +85,7 @@ const RecipeItem = ({ recipe, onRemoveRecipe, onUpdateRecipe }) => {
         <DialogModal
           onCloseDialogWithStatus={onCloseDialogWithStatus}
           isOpen={isDialogOpen}
-          message={`Are you sure you want to delete recipe ${title}?`}
+          message={`Are you sure want to delete ${title} recipe ?`}
         />
       </Container>
     </div>

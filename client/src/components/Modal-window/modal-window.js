@@ -5,7 +5,7 @@ import useStyles from './_modal-window';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 
-export default function ModalWindow ({ open, onModalClose, children }) {
+export default function ModalWindow ({ open, onModalClose, children, label }) {
   const classes = useStyles();
 
   const handleClose = () => {
@@ -29,6 +29,7 @@ export default function ModalWindow ({ open, onModalClose, children }) {
         <>
           <Paper className={classes.paper}>
             <div className={classes.header}>
+              <span className={classes.label}>{label}</span>
               <IconButton
               // color={theme.palette.primary.contrastText}
                 onClick={onModalClose}>

@@ -70,6 +70,7 @@ const EditRecipe = ({currentRecipe, open, onModalClose, onUpdateRecipe }) => {
     <ModalWindow
       open={open}
       onModalClose={onModalClose}
+      label="Edit recipe"
     >
       <div>
         {renderEditRecipeForm}

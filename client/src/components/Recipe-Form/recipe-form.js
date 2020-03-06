@@ -20,19 +20,21 @@ const RecipeForm = ({onModalClose, onAddRecipe}) => {
         <div className={classes.wrapper}>
           <TextField
             name="title"
-            required
+            required={true}
             placeholder="Recipe title"
             variant="outlined"
+            margin="dense"
             value={inputs.title}
             onChange={handleInputChange}
           />
           <TextField
-            required
+            name="description"
+            required={true}
             multiline
             rows="20"
-            name="description"
             placeholder="Recipe description"
             variant="outlined"
+            margin="dense"
             value={inputs.description}
             onChange={handleInputChange}
           />

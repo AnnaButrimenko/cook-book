@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   header: {
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     backgroundColor: theme.palette.primary.main
   },
   modal: {
@@ -11,6 +12,11 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     margin: '0 auto'
+  },
+  label: {
+    paddingLeft: theme.spacing(2),
+    fontSize: '1.4em',
+    color: theme.palette.primary.contrastText
   },
   paper: {
     // minWidth: '60%',
