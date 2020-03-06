@@ -4,13 +4,13 @@ import useStyles from './_header';
 import AddRecipeBtn from '../Add-recipe-btn/add-recipe-btn';
 import AddRecipe from '../Add-recipe/add-recipe';
 
-const Header = () => {
+const Header = ({setModal}) => {
   const classes = useStyles();
-  const [modal, setModal] = useState(false);
-
-  const closeModal = () => {
-    setModal(false)
-  };
+  // const [modal, setModal] = useState(false);
+  //
+  // const closeModal = () => {
+  //   setModal(false)
+  // };
   return (
     <AppBar position="sticky" top="0" color="primary" elevation={0}>
       <Container maxWidth="xl" className={classes.wrapper}>
@@ -19,10 +19,10 @@ const Header = () => {
           Cook Book
         </h1>
       </div>
-        <AddRecipe
-          open={modal}
-          onModalClose={closeModal}
-        />
+        {/*<AddRecipe*/}
+        {/*  open={modal}*/}
+        {/*  onModalClose={closeModal}*/}
+        {/*/>*/}
         <AddRecipeBtn
           handleClick={() => {
             setModal(true)
