@@ -4,8 +4,12 @@ const Recipe = require('../models/Recipe');
 
 //GET ALL RECIPES
 router.get('/', async (reg, res) => {
+  // const match = {};
+  // if (reg.query.title) {
+  //   match.title = reg.query.title === 'Carrot cake'
+  // }
    try {
-        const recipes = await Recipe.find();
+        const recipes = await Recipe.find().sort({date: -1});
         res.json(recipes);
    }catch (err) {
      res.json({ message: err })
