@@ -35,8 +35,8 @@ const RecipeList = ({modal, closeModal}) => {
       <RecipeItem
         key={recipe._id}
         recipe={recipe}
-        onRemoveRecipe={removeRecipe}
         recipeList={recipeList}
+        onRemoveRecipe={removeRecipe}
         onUpdateRecipe={updateRecipe}
       />
     ))

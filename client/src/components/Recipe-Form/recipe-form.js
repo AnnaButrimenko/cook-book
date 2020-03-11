@@ -6,8 +6,11 @@ import useStyles from './_recipe-form'
 
 const RecipeForm = ({onModalClose, onAddRecipe}) => {
   const {inputs, handleInputChange, handleSubmit} = useRecipeForm();
-
   const classes = useStyles();
+
+  const validate = () => {
+    return !(inputs.title && inputs.description)
+  };
   return (
     <form
       onSubmit={() => {
@@ -20,7 +23,7 @@ const RecipeForm = ({onModalClose, onAddRecipe}) => {
         <div className={classes.wrapper}>
           <TextField
             name="title"
-            required={true}
+            required
             placeholder="Recipe title"
             variant="outlined"
             margin="dense"
@@ -29,7 +32,7 @@ const RecipeForm = ({onModalClose, onAddRecipe}) => {
           />
           <TextField
             name="description"
-            required={true}
+            required
             multiline
             rows="20"
             placeholder="Recipe description"
@@ -43,6 +46,7 @@ const RecipeForm = ({onModalClose, onAddRecipe}) => {
             type="submit"
             disableUnderline
             color="primary"
+            disabled={validate()}
             onClick={() => { onAddRecipe(inputs) } }
           >Add recipe
           </Button>

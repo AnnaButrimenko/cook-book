@@ -22,6 +22,10 @@ const EditRecipe = ({currentRecipe, open, onModalClose, onUpdateRecipe }) => {
     event.persist();
     setRecipe(recipe => ({...recipe, [event.target.name]: event.target.value}));
   };
+  const validate = () => {
+    return (!recipe.title && !recipe.description)
+  };
+
   const renderEditRecipeForm = (
     <form
       onSubmit={() => {
@@ -58,6 +62,7 @@ const EditRecipe = ({currentRecipe, open, onModalClose, onUpdateRecipe }) => {
             type="submit"
             disableUnderline
             color="primary"
+            disabled={validate()}
             onClick={() => { onUpdateRecipe(recipe._id, recipe) } }
           >Save
           </Button>

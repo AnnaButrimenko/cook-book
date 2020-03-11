@@ -8,7 +8,6 @@ const Header = ({ setModal }) => {
 
   return (
     <AppBar position="sticky" top="0" color="primary" elevation={0}>
-      <p>1</p>
       <Container maxWidth="xl" className={classes.wrapper}>
         <div>
           <h1>
