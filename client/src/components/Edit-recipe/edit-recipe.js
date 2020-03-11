@@ -23,7 +23,7 @@ const EditRecipe = ({currentRecipe, open, onModalClose, onUpdateRecipe }) => {
     setRecipe(recipe => ({...recipe, [event.target.name]: event.target.value}));
   };
   const validate = () => {
-    return (!recipe.title && !recipe.description)
+    return !(recipe.title && recipe.description)
   };
 
   const renderEditRecipeForm = (
