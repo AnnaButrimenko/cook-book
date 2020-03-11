@@ -60,7 +60,6 @@ const EditRecipe = ({currentRecipe, open, onModalClose, onUpdateRecipe }) => {
           <Button
             value="Add recipe"
             type="submit"
-            disableUnderline
             color="primary"
             disabled={validate()}
             onClick={() => { onUpdateRecipe(recipe._id, recipe) } }

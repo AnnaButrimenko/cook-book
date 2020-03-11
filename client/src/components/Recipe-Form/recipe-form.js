@@ -44,7 +44,6 @@ const RecipeForm = ({onModalClose, onAddRecipe}) => {
           <Button
             value="Add recipe"
             type="submit"
-            disableUnderline
             color="primary"
             disabled={validate()}
             onClick={() => { onAddRecipe(inputs) } }
